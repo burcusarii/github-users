@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Github API - Found User</title>
+    <style>
+       .container {
+        padding: 25px;
+        border: #c5c2c2 solid 1px;
+        margin-top: 20px;
+        border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="searchContainer">
+            <h4>Github Kullanıcılarını Bulun</h4>
+            <p>Bir Github Kullanıcı Adı Girin ve İnceleyin.</p>
+            <form action="" class="github-form">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Github Kullanıcı Adı Girin" id="github-username">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary" id="search-btn" type="submit">Ara</button>
+                    </div>
+                  </div>
+            </form>
+        </div>
+    </div>
+    <div class="container">
+        <div class="last-repos">
+            <h4>En Son Repolar</h4>
+        </div>
+    
+        <div class="last-search">
+            <h4>En Son Aramalar</h4>
+        </div>
+
+        <hr>
+        <button class="last-search-btn btn-dark btn">En Son Aramaları Temizle</button>
+
+    </div>
+
+    <script src="github.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
