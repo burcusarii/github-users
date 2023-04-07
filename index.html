@@ -16,7 +16,7 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container showContainer">
         <div class="searchContainer">
             <h4>Github Kullanıcılarını Bulun</h4>
             <p>Bir Github Kullanıcı Adı Girin ve İnceleyin.</p>
@@ -28,13 +28,19 @@
                     </div>
                   </div>
             </form>
+            
         </div>
+        <div class="profile">
+        </div>
+        </div> 
     </div>
     <div class="container">
         <div class="last-repos">
             <h4>En Son Repolar</h4>
+
+            <ul class="repos-list"></ul>
         </div>
-    
+    <hr>
         <div class="last-search">
             <h4>En Son Aramalar</h4>
         </div>
@@ -43,7 +49,7 @@
         <button class="last-search-btn btn-dark btn">En Son Aramaları Temizle</button>
 
     </div>
-
+<script src="ui.js"></script>
     <script src="github.js"></script>
     <script src="app.js"></script>
 </body>
