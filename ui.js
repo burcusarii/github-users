@@ -23,9 +23,10 @@ class UI{
         </div>
         <div class="col-md-8">
         <div class="card-body">
-            <span class="btn btn-primary">Takipçi <span class="btn-sm btn-light">${user.followers}</span></span>
-            <span  class="btn btn-secondary">Takip Edilen <span class="btn-sm btn-light">${user.following}</span></span>
-            <span  class="btn btn-warning">Repolar <span class="btn-sm btn-light">${user.public_repos}</span></span>
+        <a href="https://github.com/${user.login}/?tab=followers" target="_blank"> <span class="btn btn-primary">Takipçi <span class="btn-sm btn-light">${user.followers}</span>
+        </span></a>
+        <a href="https://github.com/${user.login}/?tab=following" target="_blank"> <span  class="btn btn-secondary">Takip Edilen <span class="btn-sm btn-light">${user.following}</span></span></a>
+        <a href="https://github.com/${user.login}/?tab=repositories" target="_blank"> <span  class="btn btn-warning">Repolar <span class="btn-sm btn-light">${user.public_repos}</span></span></a>
             <hr>
             <ul class="list-unstyled">
             <li> <img class="img-fluid my-2" src="images/company.png" style="width: 25px;"> <span>${user.company}</span></li>
