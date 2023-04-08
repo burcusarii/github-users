@@ -1,11 +1,12 @@
 // Elemanları Seçme
 const seacrhBtn = document.querySelector("#search-btn");
 const searchForm = document.querySelector(".github-form");
+const clearSearch = document.querySelector(".last-search-btn");
 const github = new Github();
 const ui = new UI();
 const show = document.querySelector(".showContainer");
-// Form Submit ile API'den veri çekme
 
+// Form Submit ile API'den veri çekme
 searchForm.addEventListener("submit", function(e) {
     let username = ui.searchUser.value.trim();
 
@@ -16,14 +17,13 @@ searchForm.addEventListener("submit", function(e) {
     else {
         github.getGithubData(username)
         .then(response => {
-            console.log(response.user.message);
             if(response.user.message === "Not Found") {
                 ui.showError("Kullanıcı Bulunamadı");
             }
             else{
+                ui.addSearchUsersToLastSearch(username); // aranan kullanıcıyı son arananlar'a ekleme
+                Storage.addUserToLocalStorage(username); // aranan kullanıcıyı storage'a ekleme
                 ui.showUser(response.user);
-                console.log(response.user);
-                console.log(response.repo);
                 ui.showRepos(response.repo);
        }
     })
@@ -32,5 +32,19 @@ searchForm.addEventListener("submit", function(e) {
    
 
    ui.clearInput();
-    e.preventDefault();
+   e.preventDefault();
+});
+
+
+document.addEventListener("DOMContentLoaded", function(){
+    let users = Storage.getUsersFromLocalStorage();
+
+    users.forEach(user => {
+        ui.lastSearch.innerHTML += `<li class ="list-group-item">${user}</li>`
+    })
+})
+
+clearSearch.addEventListener("click", () => {
+    Storage.clearAllUsers();
+    ui.lastSearch.innerHTML = "";
 })

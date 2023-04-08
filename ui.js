@@ -1,7 +1,7 @@
 class UI{
     constructor(){
         this.profile = document.querySelector(".profile");
-        this.lastSearch = document.querySelector(".last-search");
+        this.lastSearch = document.querySelector(".last-search-list");
         this.searchUser = document.querySelector("#github-username");
         this.repoList = document.querySelector(".repos-list");
         this.searchContainer = document.querySelector(".searchContainer");
@@ -59,4 +59,17 @@ class UI{
             div.remove();
         }, 3000)
     }
+
+    addSearchUsersToLastSearch(username){
+        let users = Storage.getUsersFromLocalStorage();
+
+        if(users.indexOf(username) === -1) {
+            const li = document.createElement("li");
+            li.className ="list-group-item";
+            li.textContent = username;
+            this.lastSearch.appendChild(li);
+        }
+    }
+
+
 }
